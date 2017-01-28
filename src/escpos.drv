@@ -1,0 +1,38 @@
+
+// Include necessary files...
+#include <font.defs>
+#include <media.defs>
+#include <raster.defs>
+#include "escposmedia.h"
+
+// ESC/POS Label Printer
+
+DriverType label
+ModelNumber 0x00
+Font *
+Manufacturer "God knows"
+Version "1.0"
+
+// Media Sizes common to all the printers
+HWMargins 0 0 0 0
+*MediaSize w72h210
+
+ColorDevice No
+ColorModel Gray k chunky 0
+Resolution - 1 0 0 0 203dpi
+
+// Filter provided by the driver...
+Filter application/vnd.cups-raster 50 rastertofoxus
+
+{
+
+  // printer Foxus
+  {
+	Throughput 10
+	Cutter yes
+    ModelName "Foxus"
+    PCFileName "foxus.ppd"
+	VariablePaperSize Yes
+  }
+
+}

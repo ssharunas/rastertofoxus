@@ -1,0 +1,9 @@
+*.swp
+*.o
+.directory
+/bin
+/ppd
+/src/rastertofoxus
+/src/ppd
+*.raster
+*.tpcl
