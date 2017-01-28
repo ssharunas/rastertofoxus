@@ -21,9 +21,9 @@ and show them in the CUPS printer selection screens.
 
 ## Authors
 
-rastertofoxus is based on the rastertoescpos driver written by Chunlin Yao 
-rastertoescpos is based on the rastertotpcl driver written by Sam Lown 
-rastertotpcl is based on the rastertotec driver written by Patick Kong (SKE s.a.r.l). 
-rastertotec is based on the rastertolabel driver included with the CUPS printing system by Easy Software Products. 
+rastertofoxus is based on the rastertoescpos driver written by Chunlin Yao  
+rastertoescpos is based on the rastertotpcl driver written by Sam Lown  
+rastertotpcl is based on the rastertotec driver written by Patick Kong (SKE s.a.r.l).  
+rastertotec is based on the rastertolabel driver included with the CUPS printing system by Easy Software Products.  
 
 rastertofoxus is written by Šarūnas Gliebus
