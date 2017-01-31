@@ -14,9 +14,12 @@
 /*
  * Model number constants...
  */
-#define INTSIZE		20 			/* MAXIMUM CHARACTERS INTEGER */
+
 #define LINES_BATCH_SIZE 24
 #define MIN(a,b) ((a) < (b) ? (a) : (b))
+#define DEBUG_MSG_FILENAME "/tmp/cups_debug_foxus"
+#define DEBUG_BIN_FILENAME "/tmp/cups_debug_foxus.bin"
+
 
 FILE* dbg;
 FILE* dbgOut;
@@ -49,6 +52,7 @@ void writeData2(unsigned char* data, int length)
 {
 	fwrite(data, sizeof(unsigned char), length, dbgOut);
 	fwrite(data, sizeof(unsigned char), length, stdout);
+	fflush(stdout);
 }
 
 unsigned char lo (int val)
@@ -184,8 +188,20 @@ int main(int argc, char *argv[])
 	cups_raster_t       *ras;         /* Raster stream for printing */
 	cups_page_header2_t  header;	  /* Page header from file */
 
-	dbg = fopen("/tmp/printer_cps_debug", "w");
-	dbgOut = fopen("/tmp/printer_cps_debug.bin", "w");
+	dbg = fopen(DEBUG_MSG_FILENAME, "w");
+	dbgOut = fopen(DEBUG_BIN_FILENAME, "w");
+
+	if(!dbg)
+	{
+		fprintf(stderr, "Failed to open file '%s' for writing.\n", DEBUG_MSG_FILENAME);
+		return 2;
+	}
+
+	if(!dbgOut)
+	{
+		fprintf(stderr, "Failed to open file '%s' for writing.\n", DEBUG_BIN_FILENAME);
+		return 2;
+	}
 
 	/*
 	 * Make sure status messages are not buffered...

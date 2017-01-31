@@ -1,6 +1,6 @@
 
 EXEC=rastertofoxus
-CFLAGS = $(shell cups-config --cflags)
+CFLAGS = $(shell cups-config --cflags) -std=c99
 LDFLAGS = $(shell cups-config --ldflags)
 LDLIBS = $(shell cups-config --image --libs)
 CUPSDATADIR = $(shell cups-config --datadir)
